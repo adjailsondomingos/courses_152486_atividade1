@@ -37,9 +37,12 @@ Uma API simples desenvolvida para o Curso de "API e Web Service" utilizando Node
 
    ```bash
     # Exemplo de solicitação GET
-    curl -X GET http://localhost:3000/animais
-    curl -X GET http://localhost:3000/carros
     curl -X GET http://localhost:3000/pessoas
+    curl -X GET http://localhost:3000/pessoas/1
+    curl -X GET http://localhost:3000/carros
+    curl -X GET http://localhost:3000/carros/2
+    curl -X GET http://localhost:3000/animais
+    curl -X GET http://localhost:3000/animais/3
 
     # Exemplo de solicitação POST
     curl -X POST 'http://localhost:3000/animais' -d '{"id": 22, "nome": "abelha" }' --header 'Content-Type: application/json'
