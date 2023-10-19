@@ -1,12 +1,11 @@
 # Api Node
 
-Uma API simples desenvolvida para o Curso de "API e Web Service" utilizando Node e aplicando cache.utilizando Uma breve descrição da sua API Node.js.
+Uma API simples desenvolvida para o Curso de "API e Web Service" utilizando Node e aplicando cache.
 
 ## Pré-requisitos
 
 - Node.js
 - npm (geralmente vem com o Node.js)
-- Outras dependências específicas, se houver
 
 ## Instalação
 
