@@ -15,5 +15,13 @@
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adjailsondomingos/courses_152486_atividade1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adjailsondomingos/courses_152486_atividade1/issues"
+  },
+  "homepage": "https://github.com/adjailsondomingos/courses_152486_atividade1#readme",
   "description": ""
 }
