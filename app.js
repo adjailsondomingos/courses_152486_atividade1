@@ -1,7 +1,19 @@
 const express = require('express');
 const NodeCache = require('node-cache');
 const app = express();
-const port = 3000; 
+const port = 3000;  
+const fs = require("fs");
+const https = require("https");
+
+// Carrega o certificado e a key necessários para a configuração.
+const options = {
+  key: fs.readFileSync("./certificado.key"),
+  cert: fs.readFileSync("./certificado.cert")
+};
+
+var credentials = { key: options.key, cert: options.cert };
+
+var httpsServer = https.createServer(credentials, app);
 
 var animais = require('./Data/Animais.json');
 var carros = require('./Data/Carros.json');
@@ -85,8 +97,8 @@ function getObj(req, res, lst) {
   } else {
     res.json(ret);
   }
-}
+} 
 
-app.listen(port, () => {
-  console.log(`API está rodando na porta ${port}`);
-});
+  httpsServer.listen(port , () => {
+    console.log(`API está rodando na porta ${port}`); 
+  });
