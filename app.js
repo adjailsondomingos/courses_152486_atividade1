@@ -4,17 +4,7 @@ const app = express();
 const port = 3000;  
 const fs = require("fs");
 const https = require("https");
-
-// Carrega o certificado e a key necessários para a configuração.
-const options = {
-  key: fs.readFileSync("./certificado.key"),
-  cert: fs.readFileSync("./certificado.cert")
-};
-
-var credentials = { key: options.key, cert: options.cert };
-
-var httpsServer = https.createServer(credentials, app);
-
+ 
 var animais = require('./Data/Animais.json');
 var carros = require('./Data/Carros.json');
 var pessoas = require('./Data/Pessoas.json');  
@@ -99,6 +89,24 @@ function getObj(req, res, lst) {
   }
 } 
 
+if(fs.existsSync("./certificado.key"))
+{
+  // Carrega o certificado e a key necessários para a configuração. 
+  const options = {
+    key: fs.readFileSync("./certificado.key"),
+    cert: fs.readFileSync("./certificado.cert")
+  };
+
+  var credentials = { key: options.key, cert: options.cert };
+
+  var httpsServer = https.createServer(credentials, app);
+
   httpsServer.listen(port , () => {
     console.log(`API está rodando na porta ${port}`); 
   });
+}
+else{
+  app.listen(port, () => {
+    console.log(`API está rodando na porta ${port}`);
+  });
+}
